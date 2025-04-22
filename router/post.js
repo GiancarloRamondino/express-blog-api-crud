@@ -8,7 +8,7 @@ const  menuControllers = require('../controllers/menuControllers.js');
 router.get('/', menuControllers.index);
 
 //show
-router.get('/:id', menuControllers.show);
+router.get('/:prova', menuControllers.show);
 
 //store
 router.post('/', menuControllers.store);

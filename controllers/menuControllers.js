@@ -2,13 +2,15 @@ const posts = require('../data/menu.js'); // Importa il file posts.js
  
 //index
 function index (req, res) {
+    console.log(posts[0]);
+    console.log(posts.find(p => p.id === 0));
     res.json(posts);
 };
 
 //show
 function show (req, res) {
-    const id = parseInt(req.params.id);
-    const post = posts.find(p => p.id === id); // cerca il post con ID
+    const altro = parseInt(req.params.prova); // ottiene l'ID dalla richiesta
+    const post = posts.find(p => p.id === altro); // cerca il post con ID
     if (post) {
         res.json(post);
     } else {
