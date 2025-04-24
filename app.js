@@ -8,6 +8,9 @@ const port = 3000;
 //imposto asset statici
 app.use(express.static('imgs'));
 
+// Indico ad express di trattare le richieste body in formato JSON
+app.use(express.json());
+
 //importo il router
 const postsRouter = require('./router/post.js'); 
 
