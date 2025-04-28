@@ -9,3 +9,5 @@ function checkTime(req, res, next) {
     });
   }
 }
+
+module.exports = checkTime; // Export the middleware function for use in other files

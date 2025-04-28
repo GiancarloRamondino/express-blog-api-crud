@@ -12,7 +12,7 @@ const notFound = require('./middlewares/notFound.js');
 const checkTime = require('./middlewares/checkTime.js');
 
 //USO IL MIDDLEWARE checkTime
-//app.use(checkTime); // usa il middleware per controllare l'orario di accesso
+app.use(checkTime); // usa il middleware per controllare l'orario di accesso
 
 //imposto asset statici
 app.use(express.static('imgs'));

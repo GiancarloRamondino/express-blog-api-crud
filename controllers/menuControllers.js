@@ -14,7 +14,10 @@ function show (req, res) {
     if (post) {
         res.json(post);
     } else {
-        res.status(404).send('Ricetta non trovata.');
+        res.status(404).json({
+            status: 'fallito',
+            message: 'Non trovato',
+          });
     }
 };
 
@@ -30,7 +33,6 @@ function store (req, res) {
     }; // crea un nuovo post con ID e dati del body
     posts.push(newPost), // aggiunge il nuovo post all'array
     res.status(201).json(newPost); // restituisce il nuovo post
-    res.json(newPost); // restituisce l'array aggiornato
 };
 
 //update modifica  totale
@@ -38,7 +40,7 @@ function update (req, res) {
     const id = parseInt(req.params.id);  // ottiene l'ID dalla URL in formato numerico
     const post = posts.find(p => p.id === id); // cerca il post con ID
     if (!post) {
-        res.status(404).send('Post non trovato.');
+        res.status(404);
         return res.json({ 
             error: 'Post non trovato.',
             message: 'Post non trovato.'
@@ -57,7 +59,7 @@ function patch (req, res) {
     const id = parseInt(req.params.id);  // ottiene l'ID dalla URL in formato numerico
     const post = posts.find(p => p.id === id); // cerca il post con ID
     if (!post) {
-        res.status(404).send('Post non trovato.');
+        res.status(404);
         return res.json({ 
             error: 'Post non trovato.',
             message: 'Post non trovato.'
@@ -79,7 +81,10 @@ function destroy (req, res) {
         res.status(200).send(``);
         console.log(posts); // log per il server
     } else {
-        res.status(404).send('Post non trovato.');
+        res.status(404).json({
+            status: 'fallito',
+            message: 'non trovato',
+       });
     }
 };
 
