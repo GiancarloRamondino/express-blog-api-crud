@@ -1,0 +1,11 @@
+function checkTime(req, res, next) {
+  const currentHour = new Date().getHours();
+  if (currentHour >= 9 && currentHour < 17) {
+    next(); // Proceed to the next middleware or route handler
+  } else {
+    res.status(403).json({
+      status: 'fail',
+      message: 'Access denied. The service is available only from 9 AM to 5 PM.',
+    });
+  }
+}

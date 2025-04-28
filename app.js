@@ -1,4 +1,4 @@
-//importo expreess
+//importo express
 const express = require('express');
 //inizializzo express nella variabile  app
 const app = express();
@@ -8,7 +8,11 @@ const port = 3000;
 const errorsHandler = require('./middlewares/errorsHandler.js');
 //importo il middleware per la gestione degli errori 404
 const notFound = require('./middlewares/notFound.js');
+//importo il middleware per la gestione del tempo
+const checkTime = require('./middlewares/checkTime.js');
 
+//USO IL MIDDLEWARE checkTime
+//app.use(checkTime); // usa il middleware per controllare l'orario di accesso
 
 //imposto asset statici
 app.use(express.static('imgs'));

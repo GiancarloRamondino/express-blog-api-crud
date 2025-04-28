@@ -6,4 +6,4 @@ function notFound(req, res, next) {
 }
 
 
-exports = notFound; // esporta la funzione per l'uso in altri file
+module.exports = notFound; // esporta la funzione per l'uso in altri file
